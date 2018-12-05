@@ -134,10 +134,13 @@ composer require <vendor>/<module>
 där vendor/module är som det står i den composer.json
 
 # USEFUL LINKS 
-[List of Magento Common Issues and Solutions](https://firebearstudio.com/blog/magento-2-developers-cookbook-useful-code-snippets-tips-notes.html)
-[List of Videos for Magento Fundamentals](https://devdocs.magento.com/videos/fundamentals/)
-[Link to register for Awesome Tutorial](https://www.safaribooksonline.com/register/) []https://www.safaribooksonline.com/search/?query=Mastering%20Magento%202
-https://firebearstudio.com/blog/the-best-magento-2-presentations.html
+ - [List of Magento Common Issues and Solutions](https://firebearstudio.com/blog/magento-2-developers-cookbook-useful-code-snippets-tips-notes.html)
 
-#For windows issue with images/css
-https://magento.stackexchange.com/questions/64802/magento-2-404-error-for-scripts-and-css
+- [List of Videos for Magento Fundamentals](https://devdocs.magento.com/videos/fundamentals/)
+
+ - [Link to register for Awesome Tutorial](https://www.safaribooksonline.com/register/) 
+ - [Link to view the Awesome Tutorial ]https://www.safaribooksonline.com/search/?query=Mastering%20Magento%202
+ - [If you're still unsure of Magento here are the best presentations](https://firebearstudio.com/blog/the-best-magento-2-presentations.html)
+
+#post scriptum
+[Link to a fix For a problem only Windows Users had](https://magento.stackexchange.com/questions/64802/magento-2-404-error-for-scripts-and-css)
