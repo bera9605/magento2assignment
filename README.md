@@ -1,4 +1,4 @@
-# Requirements for Passing this course on webdevelopment for E-commerce Platforms
+# Requirements for Passing this course on web-development for E-commerce Platforms
 ## Step 1 : Download Magento Package : 
 ```
 composer create-project --repository=https://repo.magento.com/
