@@ -70,6 +70,17 @@ The above will tell me the name of your theme and that it is sucessfully recogni
 # KRAV FÖR VÄLGODKÄNT 
 You need to follow common practices described for magento described in more detail [here](https://devdocs.magento.com/guides/v2.2/ext-best-practices/bk-ext-best-practices.html)
 I will check most and foremost if you're modules are following the a [PSR-4 Compliant](http://www.php-fig.org/psr/psr-4/) file structure 
+If that link doesn't make sense, here is the TL;DR:
+Every module needs a composer.json and to be specific it needs to have this : 
+```
+ "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "NWT\\KCO\\": ""
+    }
+  }
+```
+And [here](https://magento.stackexchange.com/a/174728) is how to setup an automatic check on every commit.
 
 #Inlämning : 
 mail till `benjamin@nordicwebteam.se` med subject : `wie17 - <insert_your_full_name_here>`
