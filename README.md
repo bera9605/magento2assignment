@@ -1,16 +1,16 @@
 # Requirements for Passing this course on webdevelopment for E-commerce Platforms
-##Step 1 : Download Magento Package : 
+## Step 1 : Download Magento Package : 
 ```
 composer create-project --repository=https://repo.magento.com/
 magento/project-community-edition=2.2.6 <folder>
 ```
-om det blir fel kommer inte metadata paketet installeras och då behövs composer install köras, 
+If you get dependencies error you have to change directory directory and retry by install the package through composer, and you might need to use the parameter `--ignore-platform-reqs` everytime you use the command `composer`.
 ```
 cd <folder>
-composer install 
+composer install --ignore-platform-reqs
 ```
-## Step 2 Installera Magento Package
-här efter måste magento installeras, det går att göra genom att besöka url:en eller via cli (cli exempel) : 
+## Step 2 Install the Magento Package
+To install magento you have to options, using the GUI which is accessible by simply visiting the website or by the CLI : 
 ```
 php bin/magento setup:install \
     --db-host=127.0.0.1:3306 \
@@ -23,40 +23,40 @@ php bin/magento setup:install \
     --admin-firstname=test \
     --admin-lastname=test 
 ```
-## Steg 3 Konfigurera Magento
-här efter kommer lite "prestanda" inställningar till magento : 
+## Step 3 Configure Magento
+Some basic performance settings : 
 ```
 php bin/magento config:set catalog/frontend/flat_catalog_product 1 && \
 php bin/magento config:set catalog/frontend/flat_catalog_category 1 && \
 php bin/magento config:set dev/js/minify_files 1  && \
 php bin/magento config:set dev/css/minify_files 1
 ```
-admin inställningar : 
+Some admin settings : 
 ```
 php bin/magento config:set admin/security/use_form_key 0 && \
 php bin/magento config:set admin/security/admin_account_sharing 1 && \
 php bin/magento config:set admin/captcha/enable 0
 ```
-generalla inställningar : 
+General Settings : 
 ```
 php bin/magento config:set web/url/redirect_to_base 0 && \
 php bin/magento config:set web/session/use_frontend_sid 0 && \
 php bin/magento config:set dev/static/sign 0
 ```
-## Steg 4 installera modul via Composer
-Installera gdpr modul som tillåter användare att ta bort konto sitt från hemsidan.
+## Step 4 Install Module Through Composer
+Install a module for completing compliance for GDPR. 
 ```
 composer require mageplaza/module-gdpr && \
 php bin/magento setup:upgrade && \
 php bin/magento module:enable Mageplaza_Core Mageplaza_Gdpr
 ```
-## Steg 5 [Add new product Attribute](https://devdocs.magento.com/videos/fundamentals/add-new-product-attribute/) 
-verifiera att detta fungera genom att gå in på admin. När du skapar en produkt ska du ett attribut finnas med flervals alternativ. I detta specifika tutorial så är det tyget av produkten. 
-## Steg 6 How to : [Add a Javascript Module](https://devdocs.magento.com/videos/fundamentals/add-a-javascript-module/)
-GDPR compliance, förutom att kunna ta bort konto information behöver vi meddela att vi b.la. använder cookies. ni får bli kreativa här för att visa en lösning, men det lättast sättet att uppnå så att cookie meddelandet är att ändra `HELLO WORLD!` till `vi använder cookies` i filen `view/frontend/templates/hello.phtml`. Samt för att detta ska dyka upp på alla sidor behöver vi ändra namnet på följande fil: `catalog_product_view.xml` till: `default.xml`. 
-## Steg 7 Create your Theme, Use [this](https://github.com/mcspronko/magento-2-pronko-consulting-theme) as a boilerplate.
-For further instructions watch the [first video part](https://www.youtube.com/watch?v=zdjSvVUYMJo) the specifics on how to register your own theme. After you have created theme.xml and registration.php you're done with the minimum requirements.
-## Steg 8 Modify the Luma theme. 
+## Step 5 [Add new product Attribute](https://devdocs.magento.com/videos/fundamentals/add-new-product-attribute/) 
+Verify that this works by accessing the admin. When creating a product, you should have an attribute with multiple choice options. In this specific tutorial, it is the fabric of the product. 
+## Step 6 [Add a Javascript Module](https://devdocs.magento.com/videos/fundamentals/add-a-javascript-module/)
+ In addition to being able to remove account information, we need to inform the users that we may uses cookies. I want you to be creative and figure out solutin that is better, but the easiest way to accomplish that the cookie message is to change `HELLO WORLD !` to` we use cookies` in the `view / frontend / templates / hello.phtml` file. And for this to appear on all pages, we need to change the name of the following file: `catalog_product_view.xml` to:` default.xml`.
+## Step 7 Create your Theme, Use [this](https://github.com/mcspronko/magento-2-pronko-consulting-theme) as a boilerplate.
+For further instructions watch the [first video part](https://www.youtube.com/watch?v=zdjSvVUYMJo) the specifics on how to register your own theme. After you have created theme.xml and registration.php you're done with the minimum requirements for creating a theme. Before you continue to next step, the files from github repo in the former link in this step includes both `theme.xml` and `registration.php` These are basically correct except, unless we want to follow almost all of his videos linked in the github, therefor, we should change the <parent>Magento/luma</parent>    
+## Step 8 Modify the Luma theme. 
 Create this file `app/design/frontend/YourCompany/your_theme/Magento_Theme/layout/default.xml`
 and add this content : 
 ```
@@ -73,7 +73,7 @@ php bin/magento app:config:dump themes
 ``` 
 The above will tell me the name of your theme and that it is sucessfully recognized by magento. 
 
-# KRAV FÖR VÄLGODKÄNT 
+# Requirements for "Väl Godkänt"
 You need to follow common practices described for magento described in more detail [here](https://devdocs.magento.com/guides/v2.2/ext-best-practices/bk-ext-best-practices.html)
 I will check most and foremost if you're modules are following the a [PSR-4 Compliant](http://www.php-fig.org/psr/psr-4/) file structure 
 If that link doesn't make sense, here is the TL;DR:
@@ -88,11 +88,12 @@ Every module needs a composer.json and to be specific it needs to have this :
 ```
 And [here](https://magento.stackexchange.com/a/174728) is how to setup an automatic check on every commit.
 
-#Inlämning : 
-mail till `benjamin@nordicwebteam.se` med subject : `wie17 - <insert_your_full_name_here>`
-innehåll på mailet ska vara, länk till er github repo 
-samt lite åsikter/feedback kring kursen . 
-Ex : Vad ni anser om upplägget, komplexiteten/upplysningarna av innehållet, samt vilka byggstenar, kompromisser eller brister som behöver diskuteras innan kursen påbörjas.
+#How to submit : 
+mail me at: `benjamin@nordicwebteam.se` with subject : `wie17 - <insert_your_full_name_here>`
+The content should include : 
+constructive feedback regarding me or the course. 
+Example #1: What are you're thoughts about the layout, the complexity and the information of the content presumed to be in this course and what was actually tought in this course. 
+Example #2: What are the building blocks, compromises or shortcomings that need to be discussed before the course begins.
 
 # HELP Resources
 Some basic Magento developer commands are : 
