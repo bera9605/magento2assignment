@@ -2,7 +2,7 @@
 ## Step 1 : Download Magento Package : 
 ```
 composer create-project --repository=https://repo.magento.com/
-magento/project-community-edition=2.2.6 <folder>
+magento/project-community-edition=2.3.2 <folder>
 ```
 If you get dependencies error you have to change directory directory and retry by install the package through composer, and you might need to use the parameter `--ignore-platform-reqs` everytime you use the command `composer`.
 ```
