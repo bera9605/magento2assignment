@@ -14,7 +14,7 @@ Download and zip your personal github project for the magento repository, please
 composer create-project --repository=https://repo.magento.com/ magento/project-community-edition=2.3.2 --no-install --ignore-platform-reqs htdocs/m2
 ```
 >Note : the folder is required to be empty
-3. Install the Magento application.
+3. [Install the Magento application.](https://getcomposer.org/doc/03-cli.md#install-i)
 ```
 composer install --ignore-platform-reqs
 ```
@@ -42,7 +42,7 @@ php bin/magento setup:install \
 ```
 php bin/magento deploy:mode:set developer
 ```
-5. [Update Magento's composer.json Schema and the `require` property.](https://getcomposer.org/doc/03-cli.md#require) or [Use the `composer require` command to install](https://devdocs.magento.com/guides/v2.3/install-gde/install/cli/dev_add-update.html#use-the-composer-require-command-to-install)
+5. [Update Magento's composer.json Schema and the `require` property.](https://devdocs.magento.com/guides/v2.3/install-gde/install/cli/dev_add-update.html#add-a-require-section-to-composerjson) or [Use the `composer require` command to install](https://devdocs.magento.com/guides/v2.3/install-gde/install/cli/dev_add-update.html#use-the-composer-require-command-to-install)
 
 ```
 composer require "mageplaza/module-gdpr":"1.2.3" --no-update
@@ -74,13 +74,7 @@ php bin/magento -f setup:static-content:deploy
 ## Method : 
 - PHP & Composer & Git
 ## Description : 
-> DIY Alternative( instead of reusing someones code):
-  - [Create module Repository](https://devdocs.magento.com/videos/fundamentals/create-a-new-module/)
-  - [Create your module's composer.json]()
-```
-git tag <version-from-module's-composer.json>
-git push --tags
-```
+
 ### Minimal Requirements : 
 - *Update magento module through composer using private repository*
   - Code example reusing the code of the previous install (of GDPR module)  
@@ -93,8 +87,8 @@ git init
 ```
 git tag 1.2.3
 ```
-> note : tag's version should be the same as the version specified in the [composer.json](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/package/package_module.html#sample-composerjson-file)
-3. Create Tag in remote repository.
+> note : the version after `tag` should be the same as the version specified in the [composer.json](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/package/package_module.html#sample-composerjson-file)
+3. [Create Tag in remote repository.](https://git-scm.com/docs/git-push#Documentation/git-push.txt---tags)
 ```
 git push --tags
 ```
