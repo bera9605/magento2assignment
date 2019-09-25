@@ -83,7 +83,11 @@ php bin/magento -f setup:static-content:deploy
 git tag <version-from-module's-composer.json>
 git push --tags
 ```
-> Code example reusing the code of the previous install (of GDPR module)  
+
+> DIY Alternative( instead of reusing someones code):
+  - [Create module Repository](https://devdocs.magento.com/videos/fundamentals/create-a-new-module/)
+  - [Create your module's composer.json](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/package/package_module.html#sample-composerjson-file)
+
 ```
 cd vendor/<package-name>
 git init
@@ -93,9 +97,7 @@ git tag <version-from-module's-composer.json>
 git remote add origin git@github.com:<owner>/<repositoryname>
 git push origin master --tags
 ```
-> DIY Alternative( instead of reusing someones code):
-  - [Create module Repository](https://devdocs.magento.com/videos/fundamentals/create-a-new-module/)
-  - [Create your module's composer.json](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/package/package_module.html#sample-composerjson-file)
+> Code example reusing the code of the previous install (of GDPR module)  
 2. Instruct composer to look for packages in your own repository
 ```
 composer config repositories.an-unique-key git git@github.com:<owner>/<repositoryname>
@@ -161,7 +163,6 @@ composer update --lock
 
 # List of Windows Issues / Guides
 - [install composer xampp](https://www.thecodedeveloper.com/install-composer-windows-xampp/) or [install magneto on xampp](https://hostadvice.com/how-to/how-to-install-magento-2-on-a-localhost-using-xampp/)
-- 
 - [500 error or m2 folder is not visible in webroot](https://github.com/magento/magento2/issues/12777#issuecomment-352431790)
 - [404 issues](https://magento.stackexchange.com/a/64808)
 - [127.0.0.1/admin returns greyscreen](https://magento.stackexchange.com/a/252282)
