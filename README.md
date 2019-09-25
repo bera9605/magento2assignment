@@ -1,5 +1,6 @@
 # How to turn in assignments
-Download and zip your personal github project for the magento repository, please also include a link(s) to the git repository
+- Upload a zip file of your respective github repositories.
+- please also add a comment with a link to the magento project repository. 
 # Assignment 1
 ## Goal : 
 - Install Magento 
