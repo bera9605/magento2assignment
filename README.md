@@ -76,7 +76,7 @@ php bin/magento -f setup:static-content:deploy
 ## Description : 
 > DIY Alternative( instead of reusing someones code):
   - [Create module Repository](https://devdocs.magento.com/videos/fundamentals/create-a-new-module/)
-  - [Create your module's composer.json](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/package/package_module.html#sample-composerjson-file)
+  - [Create your module's composer.json]()
 ```
 git tag <version-from-module's-composer.json>
 git push --tags
@@ -84,22 +84,26 @@ git push --tags
 ### Minimal Requirements : 
 - *Update magento module through composer using private repository*
   - Code example reusing the code of the previous install (of GDPR module)  
-0. [Create a remote Repository](github.com/new)
+1. Create a new [remote](github.com/new) and local Repository
 ```
 cd vendor/mageplaza/module-gdpr
 git init
 ```
-1. Tag the latest commit in the local repostiory and push it to remote
+2. Create Tag in Local repository:
 ```
-git tag <version-from-module's-composer.json>
-git push origin master --tags
+git tag 1.2.3
 ```
-2. Instruct composer to look for packages in your own repository
+> note : tag's version should be the same as the version specified in the [composer.json](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/package/package_module.html#sample-composerjson-file)
+3. Create Tag in remote repository.
+```
+git push --tags
+```
+4. Instruct composer to look for packages in your own repository
 ```
 composer config repositories.an-unique-key git git@github.com:<owner>/<repositoryname>
 ```
 >Note : you are required to change your current working directory to magento installation directory. 
-3. Update the dependencies 
+5. Update the dependencies 
 ```
 composer update
 ```
