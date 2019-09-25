@@ -77,7 +77,8 @@ php bin/magento -f setup:static-content:deploy
 
 ### Minimal Requirements : 
 - *Update magento module through composer using private repository*
-  - Code example reusing the code of the previous install (of GDPR module)  
+> Note : The following examples is reusing the code of the previous install (of GDPR module) and you can ofcourse deviate from the examples below every step :see_no_evil: (as long as you complete the `GOALS`)
+  
 1. Create a new [remote](github.com/new) and local Repository
 ```
 cd vendor/mageplaza/module-gdpr
@@ -103,7 +104,6 @@ composer update
 ```
 ### Advanced Requirements : 
 - [*Create & Apply a patch for a Magento 2 Composer installation*](https://support.magento.com/hc/en-us/articles/360005484154-Create-a-patch-for-a-Magento-2-Composer-installation-from-a-GitHub-commit)
-> Note: You can ofcourse deviate from the examples below every step :see_no_evil:	
 
 1. Install the cweagans/composer-patches plugin to apply patch to your Composer-based Magento 2 installation.
 ```
