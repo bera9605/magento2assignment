@@ -83,7 +83,7 @@ php bin/magento -f setup:static-content:deploy
 git tag <version-from-module's-composer.json>
 git push --tags
 ```
-    - Code example reusing the code of the previous install (of GDPR module)  
+> Code example reusing the code of the previous install (of GDPR module)  
 ```
 cd vendor/<package-name>
 git init
@@ -93,7 +93,7 @@ git tag <version-from-module's-composer.json>
 git remote add origin git@github.com:<owner>/<repositoryname>
 git push origin master --tags
 ```
-- DIY Alternative( instead of reusing someones code):
+> DIY Alternative( instead of reusing someones code):
   - [Create module Repository](https://devdocs.magento.com/videos/fundamentals/create-a-new-module/)
   - [Create your module's composer.json](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/package/package_module.html#sample-composerjson-file)
 2. Instruct composer to look for packages in your own repository
