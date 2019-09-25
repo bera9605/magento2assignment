@@ -42,8 +42,8 @@ php bin/magento setup:install \
 ```
 php bin/magento deploy:mode:set developer
 ```
-[Use the `composer require` command to install](https://devdocs.magento.com/guides/v2.3/install-gde/install/cli/dev_add-update.html#use-the-composer-require-command-to-install)
-5. [Update Magento's composer.json Schema and the `require` property through CLi.](https://getcomposer.org/doc/03-cli.md#require)
+5. [Update Magento's composer.json Schema and the `require` property.](https://getcomposer.org/doc/03-cli.md#require) or [Use the `composer require` command to install](https://devdocs.magento.com/guides/v2.3/install-gde/install/cli/dev_add-update.html#use-the-composer-require-command-to-install)
+
 ```
 composer require "mageplaza/module-gdpr":"1.2.3" --no-update
 ```
