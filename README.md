@@ -83,13 +83,13 @@ git push --tags
 ```
 ### Minimal Requirements : 
 - *Update magento module through composer using private repository*
+  - Code example reusing the code of the previous install (of GDPR module)  
 0. [Create a remote Repository](github.com/new)
 ```
-cd vendor/<package-name>
+cd vendor/mageplaza/module-gdpr
 git init
 ```
 1. Tag the latest commit in the local repostiory and push it to remote
-   - Code example reusing the code of the previous install (of GDPR module)  
 ```
 git tag <version-from-module's-composer.json>
 git push origin master --tags
