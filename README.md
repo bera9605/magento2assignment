@@ -75,7 +75,7 @@ php bin/magento -f setup:static-content:deploy
 - PHP & Composer & Git
 ## Description : 
 
-###Minimal Requirements : 
+### Minimal Requirements : 
 - *Update magento module through composer using private repository*
 0. [Create a remote Repository](github.com/new)
 1. Push your module
@@ -102,7 +102,7 @@ composer config repositories.an-unique-key git git@github.com:<owner>/<repositor
 ```
 composer update
 ```
-###Advanced Requirements : 
+### Advanced Requirements : 
 - [*Create & Apply a patch for a Magento 2 Composer installation*](https://support.magento.com/hc/en-us/articles/360005484154-Create-a-patch-for-a-Magento-2-Composer-installation-from-a-GitHub-commit)
 1. Install package : cweagans/composer-patches
 ```
