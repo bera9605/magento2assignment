@@ -100,7 +100,7 @@ git push --tags
 ```
 4. Instruct composer to look for packages in your own repository
 ```
-composer config repositories.an-unique-key git git@github.com:<owner>/<repositoryname>
+composer config repositories.<an-unique-key> git git@github.com:<owner>/<repositoryname>
 ```
 >Note : you are required to change your current working directory to magento installation directory. 
 5. Update the dependencies 
@@ -118,22 +118,22 @@ composer require cweagans/composer-patches
 ```
 mkdir -p patches/composer
 ```
-3. Identify the GitHub commit or pull request to use for the patch. 
-    - code example is creating a git repo and stage the current state from the composer.lock file.
+3. save the current state of the package.
 ```
 cd vendor/magento/framework
 git init
 git add -A
 ```
-4. Make intended changes, for example solving this [issue](https://magento.stackexchange.com/a/252282)
+4. Make intended changes, good example: [issue](https://magento.stackexchange.com/a/252282), then verify by
+```
+git diff
+```
 6. Add out put of `git diff` to a file in <magento-installation-dir>/patches/composer/example.diff
-   - example: 
-
 ```
 git diff >> /<path-to-magento-installation-dir>/patches/composer/test2.diff
 ```
-
-7. Change value under the key "value" in composer.json: 
+> Note: You can ofcourse use any other way of saving the output of git diff to a file :see_no_evil:	
+7. In the bottom of your composer.json, modify the key extra. Like so: 
 ```
 "extra": {
     "composer-exit-on-patch-failure": true,
@@ -152,6 +152,7 @@ composer -v install
 ```
 composer update --lock 
 ```
+10. ??? :sunglasses: :raised_hands: :pray: :clap: :metal: :muscle:
 
 # FREE Magento educutaions
 - [5 step : magento fundamentals](https://devdocs.magento.com/videos/fundamentals/)
