@@ -74,30 +74,26 @@ php bin/magento -f setup:static-content:deploy
 ## Method : 
 - PHP & Composer & Git
 ## Description : 
-
-### Minimal Requirements : 
-- *Update magento module through composer using private repository*
-0. [Create a remote Repository](github.com/new)
-1. Tag the latest commit in the local repostiory and push it to remote
+> DIY Alternative( instead of reusing someones code):
+  - [Create module Repository](https://devdocs.magento.com/videos/fundamentals/create-a-new-module/)
+  - [Create your module's composer.json](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/package/package_module.html#sample-composerjson-file)
 ```
 git tag <version-from-module's-composer.json>
 git push --tags
 ```
-
-> DIY Alternative( instead of reusing someones code):
-  - [Create module Repository](https://devdocs.magento.com/videos/fundamentals/create-a-new-module/)
-  - [Create your module's composer.json](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/package/package_module.html#sample-composerjson-file)
-
+### Minimal Requirements : 
+- *Update magento module through composer using private repository*
+0. [Create a remote Repository](github.com/new)
 ```
 cd vendor/<package-name>
 git init
-git add -A
-git commit -m '<message>' 
+```
+1. Tag the latest commit in the local repostiory and push it to remote
+   - Code example reusing the code of the previous install (of GDPR module)  
+```
 git tag <version-from-module's-composer.json>
-git remote add origin git@github.com:<owner>/<repositoryname>
 git push origin master --tags
 ```
-> Code example reusing the code of the previous install (of GDPR module)  
 2. Instruct composer to look for packages in your own repository
 ```
 composer config repositories.an-unique-key git git@github.com:<owner>/<repositoryname>
