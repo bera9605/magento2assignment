@@ -78,11 +78,12 @@ php bin/magento -f setup:static-content:deploy
 ### Minimal Requirements : 
 - *Update magento module through composer using private repository*
 0. [Create a remote Repository](github.com/new)
-1. Push a tag  module
-    - Example reusing the code of the previous install (of GDPR module)  
-    - DIY Alternative:
-      1. [Create module Repository](https://devdocs.magento.com/videos/fundamentals/create-a-new-module/)
-      2. [Create your module's composer.json](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/package/package_module.html#sample-composerjson-file)
+1. Tag the latest commit in the local repostiory and push it to remote
+```
+git tag <version-from-module's-composer.json>
+git push --tags
+```
+    - Code example reusing the code of the previous install (of GDPR module)  
 ```
 cd vendor/<package-name>
 git init
@@ -92,6 +93,9 @@ git tag <version-from-module's-composer.json>
 git remote add origin git@github.com:<owner>/<repositoryname>
 git push origin master --tags
 ```
+- DIY Alternative( instead of reusing someones code):
+  - [Create module Repository](https://devdocs.magento.com/videos/fundamentals/create-a-new-module/)
+  - [Create your module's composer.json](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/package/package_module.html#sample-composerjson-file)
 2. Instruct composer to look for packages in your own repository
 ```
 composer config repositories.an-unique-key git git@github.com:<owner>/<repositoryname>
@@ -113,23 +117,21 @@ composer require cweagans/composer-patches
 mkdir -p patches/composer
 ```
 3. Identify the GitHub commit or pull request to use for the patch. 
-    1. Create a git repo and stage the current state from the composer.lock file.
-       - example:  
+    - code example is creating a git repo and stage the current state from the composer.lock file.
 ```
 cd vendor/magento/framework
 git init
 git add -A
 ```
-
-    2. Make intended changes, for example solving this [issue](https://magento.stackexchange.com/a/252282)
-    3. Add out put of `git diff` to a file in <magento-installation-dir>/patches/composer/example.diff
-       - example: 
+4. Make intended changes, for example solving this [issue](https://magento.stackexchange.com/a/252282)
+6. Add out put of `git diff` to a file in <magento-installation-dir>/patches/composer/example.diff
+   - example: 
 
 ```
 git diff >> /<path-to-magento-installation-dir>/patches/composer/test2.diff
 ```
 
-4. Change value under the key "value" in composer.json: 
+7. Change value under the key "value" in composer.json: 
 ```
 "extra": {
     "composer-exit-on-patch-failure": true,
@@ -140,11 +142,11 @@ git diff >> /<path-to-magento-installation-dir>/patches/composer/test2.diff
     }
 }
 ```
-5. Test applying the patch 
+8. Test applying the patch 
 ```
 composer -v install
 ```
-6. Update composer.lock patches
+9. Update composer.lock patches
 ```
 composer update --lock 
 ```
