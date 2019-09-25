@@ -103,6 +103,8 @@ composer update
 ```
 ### Advanced Requirements : 
 - [*Create & Apply a patch for a Magento 2 Composer installation*](https://support.magento.com/hc/en-us/articles/360005484154-Create-a-patch-for-a-Magento-2-Composer-installation-from-a-GitHub-commit)
+> Note: You can ofcourse deviate from the examples below every step :see_no_evil:	
+
 1. Install the cweagans/composer-patches plugin to apply patch to your Composer-based Magento 2 installation.
 ```
 composer require cweagans/composer-patches
@@ -112,8 +114,6 @@ composer require cweagans/composer-patches
 ```
 mkdir -p patches/composer
 ```
-> Note: You can ofcourse use any other way of creating directories :see_no_evil:	
-
 3. save the current state of the package.
 ```
 cd vendor/magento/framework
@@ -140,11 +140,12 @@ git diff >> ../../../patches/composer/example.diff
     }
 }
 ```
-8. Test applying the patch 
+8. Test applying the patch
 ```
 composer -v install
 ```
-9. Update composer.lock patches
+> Note: If it fails it is probably best to go back to step#3
+9. [Update only the composer.lock file](https://getcomposer.org/doc/03-cli.md#update-u)
 ```
 composer update --lock 
 ```
