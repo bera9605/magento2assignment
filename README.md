@@ -78,21 +78,20 @@ php bin/magento -f setup:static-content:deploy
 ### Minimal Requirements : 
 - *Update magento module through composer using private repository*
 0. [Create a remote Repository](github.com/new)
-1. Push your module
+1. Push a tag  module
     - Example reusing the code of the previous install (of GDPR module)  
+    - DIY Alternative:
+      1. [Create module Repository](https://devdocs.magento.com/videos/fundamentals/create-a-new-module/)
+      2. [Create your module's composer.json](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/package/package_module.html#sample-composerjson-file)
 ```
 cd vendor/<package-name>
 git init
 git add -A
 git commit -m '<message>' 
-git tag <version>
+git tag <version-from-module's-composer.json>
 git remote add origin git@github.com:<owner>/<repositoryname>
 git push origin master --tags
 ```
-    - DIY Alternative:
-      1. [Create module Repository](https://devdocs.magento.com/videos/fundamentals/create-a-new-module/)
-      2. [Create your module's composer.json](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/package/package_module.html#sample-composerjson-file)
-
 2. Instruct composer to look for packages in your own repository
 ```
 composer config repositories.an-unique-key git git@github.com:<owner>/<repositoryname>
@@ -154,7 +153,11 @@ composer update --lock
 - [Code snippets: If you want to get your hands dirty!](https://firebearstudio.com/blog/magento-2-developers-cookbook-useful-code-snippets-tips-notes.html)
 
 # List of Windows Issues / Guides
-[404](https://magento.stackexchange.com/questions/64802/magento-2-404-error-for-scripts-and-css)
+- [install composer xampp](https://www.thecodedeveloper.com/install-composer-windows-xampp/) or [install magneto on xampp](https://hostadvice.com/how-to/how-to-install-magento-2-on-a-localhost-using-xampp/)
+- 
+- [500 error or m2 folder is not visible in webroot](https://github.com/magento/magento2/issues/12777#issuecomment-352431790)
+- [404 issues](https://magento.stackexchange.com/a/64808)
+- [127.0.0.1/admin returns greyscreen](https://magento.stackexchange.com/a/252282)
 
 ### Additional Documentation for Git  
 - [git init](https://git-scm.com/docs/git-init)
