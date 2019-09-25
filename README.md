@@ -120,13 +120,17 @@ cd vendor/magento/framework
 git init
 git add -A
 ```
+
     2. Make intended changes, for example solving this [issue](https://magento.stackexchange.com/a/252282)
     3. Add out put of `git diff` to a file in <magento-installation-dir>/patches/composer/example.diff
        - example: 
+
 ```
 git diff >> /<path-to-magento-installation-dir>/patches/composer/test2.diff
 ```
+
 4. Change value under the key "value" in composer.json: 
+```
 "extra": {
     "composer-exit-on-patch-failure": true,
     "patches": {
@@ -135,6 +139,7 @@ git diff >> /<path-to-magento-installation-dir>/patches/composer/test2.diff
         }
     }
 }
+```
 5. Test applying the patch 
 ```
 composer -v install
