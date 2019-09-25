@@ -4,7 +4,7 @@ Download and zip your personal github project for the magento repository, please
 ## Goal : 
 - Install Magento 
 - Install a component 
-  - _example_ : Add component for compliance with GDPR - Remaining requirements for GDPR can be reviewed *here*: [Dataflow Diagrams](https://devdocs.magento.com/guides/v2.3/architecture/gdpr/magento-2x.html#data-flow-diagrams)])
+  - _example_ : Add component for compliance with GDPR - Remaining requirements for GDPR can be reviewed *here*: [Dataflow Diagrams](https://devdocs.magento.com/guides/v2.3/architecture/gdpr/magento-2x.html#data-flow-diagrams)
 ## Method :
 - PHP & Composer
 ## Description:
