@@ -103,15 +103,17 @@ composer update
 ```
 ### Advanced Requirements : 
 - [*Create & Apply a patch for a Magento 2 Composer installation*](https://support.magento.com/hc/en-us/articles/360005484154-Create-a-patch-for-a-Magento-2-Composer-installation-from-a-GitHub-commit)
-1. Install package : cweagans/composer-patches
+1. Install the cweagans/composer-patches plugin to apply patch to your Composer-based Magento 2 installation.
 ```
 composer require cweagans/composer-patches
 ```
+>Warning: Always perform comprehensive testing before deploying any unreleased patch.
 2. Create a patches/composer directory in your local project.
-   - example: 
 ```
 mkdir -p patches/composer
 ```
+> Note: You can ofcourse use any other way of creating directories :see_no_evil:	
+
 3. save the current state of the package.
 ```
 cd vendor/magento/framework
@@ -124,7 +126,7 @@ git diff
 ```
 6. Add out put of `git diff` to a file in <magento-installation-dir>/patches/composer/example.diff
 ```
-git diff >> /<path-to-magento-installation-dir>/patches/composer/test2.diff
+git diff >> ../../../patches/composer/example.diff
 ```
 > Note: You can ofcourse use any other way of saving the output of git diff to a file :see_no_evil:	
 7. In the bottom of your composer.json, modify the key extra. Like so: 
@@ -133,7 +135,7 @@ git diff >> /<path-to-magento-installation-dir>/patches/composer/test2.diff
     "composer-exit-on-patch-failure": true,
     "patches": {
         "magento/framework": {
-            "WAMP/XAMP-issue: admin screen is full grey": "patches/composer/github-issue-6474.diff"
+            "WAMP/XAMP-issue: admin screen is full grey": "patches/composer/example.diff"
         }
     }
 }
