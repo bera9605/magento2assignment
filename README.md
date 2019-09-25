@@ -8,15 +8,16 @@ Download and zip your personal github project for the magento repository, please
 ## Method :
 - PHP & Composer
 ## Description:
+> Note : Common issue regarding finishing the prerequisites is that wrong php is used by default and thus composer. You can try using composer `--ignore-platform-reqs` and using the full path instead `php bin/magento`
 1. [Get your authentication keys](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/connect-auth.html)
 2. [Get the metapackage](https://devdocs.magento.com/guides/v2.3/install-gde/composer.html#get-the-metapackage) 
 ```
-composer create-project --repository=https://repo.magento.com/ magento/project-community-edition=2.3.2 --no-install --ignore-platform-reqs htdocs/m2
+composer create-project --repository=https://repo.magento.com/ magento/project-community-edition=2.3.2 --no-install  htdocs/m2
 ```
 >Note : the folder is required to be empty
 3. [Install the Magento application.](https://getcomposer.org/doc/03-cli.md#install-i)
 ```
-composer install --ignore-platform-reqs
+composer install
 ```
 >Note : you are required to change your current working directory to magento installation directory. 
 3. [Install magento](https://devdocs.magento.com/guides/v2.3/install-gde/composer.html#install-magento) ( creates app/etc/env.php )
@@ -120,11 +121,11 @@ cd vendor/magento/framework
 git init
 git add -A
 ```
-4. Make intended changes, good example: [issue](https://magento.stackexchange.com/a/252282), then verify by
+4. Make intended changes, i.e. Resolve this [issue](https://magento.stackexchange.com/a/252282), verify changes.
 ```
 git diff
 ```
-6. Add out put of `git diff` to a file in <magento-installation-dir>/patches/composer/example.diff
+6. Add out put of `git diff` to a file in `<magento-installation-dir>/patches/composer/example.diff`.
 ```
 git diff >> ../../../patches/composer/example.diff
 ```
@@ -140,11 +141,11 @@ git diff >> ../../../patches/composer/example.diff
     }
 }
 ```
-8. Test applying the patch
+8. Test applying the patch.
 ```
 composer -v install
 ```
-> Note: If it fails it is probably best to go back to step#3
+> Note: the `-v` flag is so that you get a better failure message.
 9. [Update only the composer.lock file](https://getcomposer.org/doc/03-cli.md#update-u)
 ```
 composer update --lock 
